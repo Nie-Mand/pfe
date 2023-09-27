@@ -34,23 +34,35 @@ func Send(destination Destination) {
 		log.Fatal("TEMPLATE_ID is not set")
 	}
 
+	var data map[string]interface{}
+
 	if brand == "" {
-		log.Fatal("BRAND_ID is not set")
-	}
-
-
-	data := map[string]interface{}{
-		"message": map[string]interface{}{
-			"to": map[string]interface{}{
-				"email": destination.Email,
+		data = map[string]interface{}{
+			"message": map[string]interface{}{
+				"to": map[string]interface{}{
+					"email": destination.Email,
+				},
+				"template": template,
+				"data": map[string]interface{}{
+					"company": destination.Company,
+					"position": destination.Position,
+				},
 			},
-			"template": template,
-			"brand_id": brand,
-			"data": map[string]interface{}{
-				"company": destination.Company,
-				"position": destination.Position,
+		}
+	} else {
+		data = map[string]interface{}{
+			"message": map[string]interface{}{
+				"to": map[string]interface{}{
+					"email": destination.Email,
+				},
+				"template": template,
+				"brand_id": brand,
+				"data": map[string]interface{}{
+					"company": destination.Company,
+					"position": destination.Position,
+				},
 			},
-		},
+		}
 	}
 
 	jsonStr, err := json.Marshal(data)

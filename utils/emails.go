@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"crypto/sha256"
+	"fmt"
 	"log"
 	"os"
 
@@ -35,4 +37,12 @@ func LoadEmails(emailsFile string) []Destination {
 	}
 
     return data
+}
+
+func (d *Destination) Hash() string {
+    h := sha256.New()
+    bytes := []byte(d.Email + d.Company + d.Position)
+	h.Write(bytes)
+	h.Sum(nil)
+	return fmt.Sprintf("%x", h.Sum(nil))
 }

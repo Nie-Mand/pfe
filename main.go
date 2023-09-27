@@ -1,14 +1,12 @@
 package main
 
 import (
-	"Nie-Mand/pfender/cmd"
+	_ "Nie-Mand/pfender/utils"
 
-	"github.com/joho/godotenv"
+	"Nie-Mand/pfender/cmd"
 )
 
 
 func main() {
-	godotenv.Load("config.txt")
 	cmd.Execute()
-
 }
