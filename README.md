@@ -8,8 +8,9 @@ It is based on the Courier API, so it is required to have an account with a vali
 1. Install the binary
 
 ```bash
+wget https://github.com/Nie-Mand/pfe/releases/download/v0.1/pfe
+chmod +x pfe
 ```
-
 
 2. Create `config.txt` file, it should contain the following information:
     - `COURIER_TOKEN`: your [Courier](https://courier.com) token
