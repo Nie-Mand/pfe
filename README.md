@@ -36,5 +36,5 @@ Tiktok,Platform Engineering Intern,hr@tiktok.com
 4. Run the script
 
 ```bash
-./pfe -f companies.csv
+./pfe send -f companies.csv
 ```
