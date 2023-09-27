@@ -8,11 +8,11 @@ It is based on the Courier API, so it is required to have an account with a vali
 1. Install the binary
 
 ```bash
-wget https://github.com/Nie-Mand/pfe/releases/download/v0.1/pfe
+wget https://github.com/Nie-Mand/pfe/releases/download/v0.1.2/pfe
 chmod +x pfe
 ```
 
-2. Create `config.txt` file, it should contain the following information:
+2. Create `config.txt` file (or anything), it should contain the following information:
     - `COURIER_TOKEN`: your [Courier](https://courier.com) token
     - `TEMPLATE_ID`: the template id of the email you want to send
     - `BRAND_ID`: the brand id of the email you want to send
@@ -20,7 +20,7 @@ chmod +x pfe
 ```env
 COURIER_TOKEN=your_token
 TEMPLATE_ID=your_template_id
-BRAND_ID=your_brand_id
+BRAND_ID=your_brand_id_if_applicable
 ```
 
 3. Create `companies.csv` file, it should contain the following information:
@@ -37,5 +37,8 @@ Tiktok,Platform Engineering Intern,hr@tiktok.com
 4. Run the script
 
 ```bash
-./pfe send -f companies.csv
+./pfe send -f companies.csv -c config.txt
 ```
+
+### Notes
+- It will create a `.pfe.state` file to keep track of the companies you have already sent an email to, so it will not send the same email twice. Any change to a row will be considered as a new company.
