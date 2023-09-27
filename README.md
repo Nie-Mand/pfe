@@ -8,8 +8,6 @@ It is based on the Courier API, so it is required to have an account with a vali
 1. Install the binary
 
 ```bash
-
-wget 
 ```
 
 
